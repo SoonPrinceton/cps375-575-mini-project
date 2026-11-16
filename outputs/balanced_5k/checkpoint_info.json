@@ -1,0 +1,23 @@
+{
+  "checkpoint_path": "tinker://ba0bda34-6116-5379-ba1d-a7c76d8cbb5d:train:0/sampler_weights/balanced_5k",
+  "training_state_path": "tinker://ba0bda34-6116-5379-ba1d-a7c76d8cbb5d:train:0/weights/balanced_5k",
+  "checkpoint_name": "balanced_5k",
+  "base_model": "Qwen/Qwen3.5-9B-Base",
+  "renderer_name": "role_colon",
+  "train_data": "data/mixtures/balanced_5k.jsonl",
+  "val_data": "data/validation.jsonl",
+  "training": {
+    "num_epochs": 1,
+    "num_steps": 313,
+    "batch_size": 16,
+    "learning_rate": 0.0001,
+    "lora_rank": 32,
+    "max_length": 2048,
+    "eval_every": 100,
+    "seed": 42,
+    "beta1": 0.9,
+    "beta2": 0.95,
+    "eps": 1e-08
+  },
+  "published": false
+}
