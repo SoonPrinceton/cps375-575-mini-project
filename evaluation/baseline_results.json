@@ -1,0 +1,37 @@
+{
+  "type": "baseline",
+  "models": {
+    "Qwen/Qwen3.5-9B-Base": {
+      "google/IFEval/prompt_strict_acc": 0.7190388170055453,
+      "google/IFEval/prompt_strict_stderr": 0.019342047683776974,
+      "google/IFEval/prompt_loose_acc": 0.7430683918669131,
+      "google/IFEval/prompt_loose_stderr": 0.018802962575636885,
+      "google/IFEval/inst_strict_acc": 0.7925659472422062,
+      "google/IFEval/inst_strict_stderr": 0.014420097586602131,
+      "google/IFEval/inst_loose_acc": 0.8117505995203836,
+      "google/IFEval/inst_loose_stderr": 0.014003910391396469,
+      "google/IFEval/final_acc": 0.766605938908762,
+      "google/IFEval/final_stderr": 0.01881523280071485,
+      "math500/accuracy": 0.852,
+      "math500/stderr": 0.01589645856125128,
+      "mbpp/accuracy": 0.7237354085603113,
+      "mbpp/stderr": 0.027946829185942438
+    },
+    "Qwen/Qwen3.5-9B": {
+      "google/IFEval/prompt_strict_acc": 0.833641404805915,
+      "google/IFEval/prompt_strict_stderr": 0.016025639930548306,
+      "google/IFEval/prompt_loose_acc": 0.8835489833641405,
+      "google/IFEval/prompt_loose_stderr": 0.01380352728407129,
+      "google/IFEval/inst_strict_acc": 0.882494004796163,
+      "google/IFEval/inst_strict_stderr": 0.011551644944164656,
+      "google/IFEval/inst_loose_acc": 0.9184652278177458,
+      "google/IFEval/inst_loose_stderr": 0.009942401962521535,
+      "google/IFEval/final_acc": 0.8795374051959911,
+      "google/IFEval/final_stderr": 0.015055060603361854,
+      "math500/accuracy": 0.912,
+      "math500/stderr": 0.012682021421471788,
+      "mbpp/accuracy": 0.7898832684824902,
+      "mbpp/stderr": 0.02546195773338786
+    }
+  }
+}

@@ -83,6 +83,8 @@ def main():
     parser.add_argument("--num_epochs", type=int, default=1)
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument("--eval_every", type=int, default=100, help="Validation interval in steps")
+    parser.add_argument("--save_every", type=int, default=0,
+                        help="Save sampler and training checkpoints every N steps (0 disables periodic saves)")
     parser.add_argument("--batch_size", type=int, default=4, help="Batch size")
     parser.add_argument("--lr", type=float, default=1e-4, help="Learning rate")
     parser.add_argument("--rank", type=int, default=32, help="LoRA rank")
@@ -94,6 +96,8 @@ def main():
     for name in ("num_epochs", "batch_size", "rank", "eval_every"):
         if getattr(args, name) <= 0:
             parser.error(f"--{name} must be positive")
+    if args.save_every < 0:
+        parser.error("--save_every must be nonnegative")
     if args.max_length < 2:
         parser.error("--max_length must be at least 2 for next-token prediction")
     if not math.isfinite(args.lr) or args.lr <= 0:
@@ -179,6 +183,20 @@ def main():
             })
             progress.set_postfix(loss=f"{loss:.4f}", step=f"{step}/{total_steps}")
 
+            if args.save_every and step % args.save_every == 0:
+                name = f"{args.checkpoint_name}_step_{step}"
+                sampler = tc.save_weights_for_sampler(name=name).result()
+                state = tc.save_state(name=name).result()
+                tqdm.write(f"  Step {step}/{total_steps} | Sampler checkpoint: {sampler.path} "
+                           f"| Training state: {state.path}")
+                with (args.output_dir / f"checkpoint_info_step_{step}.json").open("w", encoding="utf-8") as f:
+                    json.dump({
+                        "checkpoint_name": name,
+                        "checkpoint_path": sampler.path,
+                        "training_state_path": state.path,
+                        "step": step,
+                    }, f, indent=2)
+
             # The final step always evaluates, even between regular intervals.
             if step % args.eval_every == 0 or step == total_steps:
                 val_loss, val_weight = evaluate(tc, val_data, args.batch_size)
@@ -217,6 +235,7 @@ def main():
             "lora_rank": args.rank,
             "max_length": args.max_length,
             "eval_every": args.eval_every,
+            "save_every": args.save_every,
             "seed": args.seed,
             "beta1": 0.9,
             "beta2": 0.95,

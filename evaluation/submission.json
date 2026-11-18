@@ -13,16 +13,16 @@
   },
   "ifeval": {
     "metrics": {
-      "google/IFEval/prompt_strict_acc": 0.7393715341959335,
-      "google/IFEval/prompt_strict_stderr": 0.018890584986760186,
-      "google/IFEval/prompt_loose_acc": 0.7744916820702403,
-      "google/IFEval/prompt_loose_stderr": 0.017984268664495633,
+      "google/IFEval/prompt_strict_acc": 0.7375231053604436,
+      "google/IFEval/prompt_strict_stderr": 0.018933742876044598,
+      "google/IFEval/prompt_loose_acc": 0.7726432532347505,
+      "google/IFEval/prompt_loose_stderr": 0.01803626267364002,
       "google/IFEval/inst_strict_acc": 0.8093525179856115,
-      "google/IFEval/inst_strict_stderr": 0.013941148036271691,
-      "google/IFEval/inst_loose_acc": 0.8345323741007195,
-      "google/IFEval/inst_loose_stderr": 0.013470128284162245,
-      "google/IFEval/final_acc": 0.7894370270881262,
-      "google/IFEval/final_stderr": 0.0181639840455641
+      "google/IFEval/inst_strict_stderr": 0.013857275659185427,
+      "google/IFEval/inst_loose_acc": 0.8333333333333334,
+      "google/IFEval/inst_loose_stderr": 0.013504285532791472,
+      "google/IFEval/final_acc": 0.7882130524785348,
+      "google/IFEval/final_stderr": 0.018183600173985636
     },
     "samples": [
       {
@@ -262,7 +262,7 @@
         "prompt_strict": false,
         "prompt_loose": false,
         "num_instructions": 3,
-        "inst_strict": 1,
+        "inst_strict": 2,
         "inst_loose": 2
       },
       {
@@ -563,10 +563,10 @@
       },
       {
         "id": 1122,
-        "prompt_strict": true,
+        "prompt_strict": false,
         "prompt_loose": false,
         "num_instructions": 2,
-        "inst_strict": 2,
+        "inst_strict": 1,
         "inst_loose": 1
       },
       {
@@ -2780,10 +2780,10 @@
       {
         "id": 2685,
         "prompt_strict": false,
-        "prompt_loose": true,
+        "prompt_loose": false,
         "num_instructions": 1,
         "inst_strict": 0,
-        "inst_loose": 1
+        "inst_loose": 0
       },
       {
         "id": 2691,
@@ -4357,8 +4357,8 @@
   },
   "math500": {
     "metrics": {
-      "math500/accuracy": 0.81,
-      "math500/stderr": 0.01756180041075899
+      "math500/accuracy": 0.806,
+      "math500/stderr": 0.017701827855304594
     },
     "samples": [
       {
@@ -5139,7 +5139,7 @@
       },
       {
         "id": "math_6885282d",
-        "correct": true
+        "correct": false
       },
       {
         "id": "math_6a611c4a",
@@ -5591,7 +5591,7 @@
       },
       {
         "id": "math_a2f7bec0",
-        "correct": true
+        "correct": false
       },
       {
         "id": "math_a31e71a6",

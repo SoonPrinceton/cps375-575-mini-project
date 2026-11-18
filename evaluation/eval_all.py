@@ -17,6 +17,7 @@ import asyncio
 import json
 import logging
 import os
+from dotenv import load_dotenv
 
 from tinker_cookbook.model_info import get_recommended_renderer_name
 
@@ -136,6 +137,7 @@ def save_json(path, data):
 
 
 def main():
+    load_dotenv()  # Load environment variables from .env file
     p = argparse.ArgumentParser(description="Evaluate on IFEval, MATH-500, and MBPP")
     p.add_argument("--base_models", type=str, nargs="+", default=None,
                     help="One or more base models to evaluate (e.g. Qwen/Qwen3.5-9B-Base)")
@@ -202,7 +204,7 @@ def main():
                 metrics, _ = asyncio.run(run_core(
                     base_model=model,
                     checkpoint_path=None,
-                    renderer_name=None,
+                    renderer_name=args.renderer_name,
                     temperature=args.temperature,
                     top_p=args.top_p,
                     limit=args.limit,

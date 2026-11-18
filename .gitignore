@@ -24,7 +24,6 @@ logs/
 # Evaluation outputs
 inspect-logs/
 evaluation/checkpoint_info.json
-evaluation/baseline_results.json
 
 # env
 .env
